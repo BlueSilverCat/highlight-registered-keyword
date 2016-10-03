@@ -7,7 +7,7 @@ Sorry, Im bad at English.
 For the reason, this is confusing description.  
 
 ## How to use
-1. Register keyword to your config.cson. like this.
+1 Register keyword to your config.cson. like this.  
 ```.coffee
   "highlight-registered-keyword":
     delay: 2000
@@ -47,7 +47,7 @@ For the reason, this is confusing description.
     ]
 ```
 
-2. Resister style to your styles.less. like this.
+2 Resister style to your styles.less. like this.  
 ```.css
 atom-text-editor::shadow .highlight {
   &.highlight-registered-keyword {
@@ -95,8 +95,10 @@ atom-text-editor::shadow .highlight {
 }
 ```
 
-3. Activate package.
-default key is ...
+3 Activate package.  
+default key is Alt+Ctrl+Shift+h  
+
+![A screenshot of your package](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
 
 ## about config.cson
 Patterns is array of Object.  
@@ -139,8 +141,6 @@ atom-text-editor::shadow .highlight-registered-keyword&.specified-class .region 
 ```
 valid style: background, border...  
 invalid style: font, color...  
-
-![A screenshot of your package](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
 
 ## Known problem
 * lag on particular pattern.  
