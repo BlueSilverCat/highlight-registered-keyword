@@ -9,7 +9,7 @@
   "activationCommands": {
     "atom-workspace": "highlight-registered-keyword:toggle"
   },
-  "repository": "",
+  "repository": "https://github.com/BlueSilverCat/highlight-registered-keyword.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.10.2 <2.0.0"

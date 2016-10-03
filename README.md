@@ -140,7 +140,7 @@ atom-text-editor::shadow .highlight-registered-keyword&.specified-class .region 
 valid style: background, border...  
 invalid style: font, color...  
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![A screenshot of your package](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
 
 ## Known problem
 * lag on particular pattern.  
