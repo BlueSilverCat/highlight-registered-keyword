@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle highlight-registered-keyword",
+        "command": "highlight-registered-keyword:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "highlight-registered-keyword",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "highlight-registered-keyword:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

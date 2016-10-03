@@ -1,0 +1,36 @@
+"highlight-registered-keyword":
+ delay: 2000
+ patterns: [
+   {
+     pattern: "///.*/g"
+     class: "comment"
+   }
+   {
+     pattern: "/#.*/g"
+     class: "comment"
+   }
+   {
+     pattern: "//\\*[\\S\\s]*?\\*//g"
+     class: "blockcomment"
+   }
+   {
+     pattern: "/RedCat/g"
+     class: "redcat"
+   }
+   {
+     pattern: "/GreenCat/g"
+     class: "greencat"
+   }
+   {
+     pattern: "/BlueCat/g"
+     class: "bluecat"
+   }
+   {
+     pattern: "/\\bcat\\b/gi"
+     class: "cat"
+   }
+   {
+     pattern: "/\\\\/g"
+     class: "backslash"
+   }
+ ]
