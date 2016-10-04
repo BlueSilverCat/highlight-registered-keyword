@@ -47,7 +47,7 @@ For the reason, this is confusing description.
     ]
 ```
 
-2 Resister style to your styles.less. like this.  
+2 Register style to your styles.less. like this.  
 ```.css
 atom-text-editor::shadow .highlight {
   &.highlight-registered-keyword {
@@ -96,7 +96,7 @@ atom-text-editor::shadow .highlight {
 ```
 
 3 Activate package.  
-default key is Alt+Ctrl+Shift+h  
+default key is `Alt+Ctrl+Shift+h`  
 
 ![A screenshot of your package](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
 
@@ -105,15 +105,15 @@ Patterns is array of Object.
 Object properties are pattern and class.  
 pattern is a String that is quoted Regular expression.  
 like this `"/.*ABC.*/gmiy"`  
-class is a String that is represent CSS class.  
 valid flags are `g`, `m`, `i` and `y`.  
+class is a String that is represent CSS class.  
 if you use `\`, it need escape like this `\\`.  
 e.g. `\d` is `\\d`.  
 if you want to match `\`, you have to write like this `\\\\`
 ```.js
 patterns: [
 	{
-    # /\\\d\\/g; matching string is like this /12345/
+    # /\\\d\\/g; matching string is like this \12345\
 		pattern: "/\\\\\\d?\\\\/g"  
 		class: "keyword"
 	}
