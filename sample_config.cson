@@ -1,36 +1,168 @@
-"highlight-registered-keyword":
- delay: 2000
- patterns: [
-   {
-     pattern: "///.*/g"
-     class: "comment"
-   }
-   {
-     pattern: "/#.*/g"
-     class: "comment"
-   }
-   {
-     pattern: "//\\*[\\S\\s]*?\\*//g"
-     class: "blockcomment"
-   }
-   {
-     pattern: "/RedCat/g"
-     class: "redcat"
-   }
-   {
-     pattern: "/GreenCat/g"
-     class: "greencat"
-   }
-   {
-     pattern: "/BlueCat/g"
-     class: "bluecat"
-   }
-   {
-     pattern: "/\\bcat\\b/gi"
-     class: "cat"
-   }
-   {
-     pattern: "/\\\\/g"
-     class: "backslash"
-   }
- ]
+  "highlight-registered-keyword":
+    delay: 1500
+    patterns: [
+      {
+        class: "keyword"
+        pattern: "/WhiteCat|BlackCat/g"
+      }
+      {
+        class: "comment"
+        pattern: "/(//.*$)|(#.*$)/g"
+      }
+      {
+        class: "blockcomment"
+        pattern: "//\\*[\\S\\s]*?\\*//g"
+      }
+      {
+        class: "keyword"
+        pattern: "/\\251|\\xAE/g"
+      }
+      {
+        class: "windowslinebreak"
+        pattern: "/\\cM\\cJ/g"
+      }
+      {
+        class: "badSpace"
+        pattern: "/\u00A0|\u2000|\u2001|\u2002|\u2003|\u2004|\u2005|\u2006|\u2007|\u2008|\u2009|\u200A|\u202F|\u205F|\u3000/g"
+      }
+      {
+        class: "badZeroWidthSpace"
+        pattern: "/\u200B|\u200C|\u200D|\uFEFF/g"
+      }
+      {
+        class: "escapeSequence"
+        pattern: "/\\\\./g"
+      }
+      {
+        class: "literal"
+        pattern: "/\".*?\"/g"
+      }
+      {
+        class: "ISBN"
+        pattern: "/(ISBN-13 ?((978)|(979))-\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)|(ISBN-10 ?\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2000B}|\u{2123D}|\u{2131B}|\u{2146E}|\u{218BD}|\u{20B9F}|\u{216B4}|\u{21E34}|\u{231C4}|\u{235C4}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2373F}|\u{23763}|\u{23CFE}|\u{247F1}|\u{2548E}|\u{2550E}|\u{25771}|\u{259C4}|\u{25DA1}|\u{26AFF}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{26E40}|\u{270F4}|\u{27684}|\u{28277}|\u{283CD}|\u{2A190}|\u{20089}|\u{200A2}|\u{200A4}|\u{201A2}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{20213}|\u{2032B}|\u{20381}|\u{20371}|\u{203F9}|\u{2044A}|\u{20509}|\u{205D6}|\u{20628}|\u{2074F}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{20807}|\u{2083A}|\u{208B9}|\u{2097C}|\u{2099D}|\u{20AD3}|\u{20B1D}|\u{20D45}|\u{20DE1}|\u{20E95}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{20E6D}|\u{20E64}|\u{20F5F}|\u{21201}|\u{21255}|\u{2127B}|\u{21274}|\u{212E4}|\u{212D7}|\u{212FD}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{21336}|\u{21344}|\u{213C4}|\u{2146D}|\u{215D7}|\u{26C29}|\u{21647}|\u{21706}|\u{21742}|\u{219C3}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{21C56}|\u{21D2D}|\u{21D45}|\u{21D78}|\u{21D62}|\u{21DA1}|\u{21D9C}|\u{21D92}|\u{21DB7}|\u{21DE0}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{21E33}|\u{21F1E}|\u{21F76}|\u{21FFA}|\u{2217B}|\u{2231E}|\u{223AD}|\u{226F3}|\u{2285B}|\u{228AB}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2298F}|\u{22AB8}|\u{22B4F}|\u{22B50}|\u{22B46}|\u{22C1D}|\u{22BA6}|\u{22C24}|\u{22DE1}|\u{231C3}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{231F5}|\u{231B6}|\u{23372}|\u{233D3}|\u{233D2}|\u{233D0}|\u{233E4}|\u{233D5}|\u{233DA}|\u{233DF}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2344A}|\u{23451}|\u{2344B}|\u{23465}|\u{234E4}|\u{2355A}|\u{23594}|\u{23639}|\u{23647}|\u{23638}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2363A}|\u{2371C}|\u{2370C}|\u{23764}|\u{237FF}|\u{237E7}|\u{23824}|\u{2383D}|\u{23A98}|\u{23C7F}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{23D00}|\u{23D40}|\u{23DFA}|\u{23DF9}|\u{23DD3}|\u{23F7E}|\u{24096}|\u{24103}|\u{241C6}|\u{241FE}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{243BC}|\u{24629}|\u{246A5}|\u{24896}|\u{24A4D}|\u{24B56}|\u{24B6F}|\u{24C16}|\u{24D14}|\u{24E0E}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{24E37}|\u{24E6A}|\u{24E8B}|\u{2504A}|\u{25055}|\u{25122}|\u{251A9}|\u{251E5}|\u{251CD}|\u{2521E}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2524C}|\u{2542E}|\u{254D9}|\u{255A7}|\u{257A9}|\u{257B4}|\u{259D4}|\u{25AE4}|\u{25AE3}|\u{25AF1}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{25BB2}|\u{25C4B}|\u{25C64}|\u{25E2E}|\u{25E56}|\u{25E65}|\u{25E62}|\u{25ED8}|\u{25EC2}|\u{25EE8}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{25F23}|\u{25F5C}|\u{25FE0}|\u{25FD4}|\u{2600C}|\u{25FFB}|\u{26017}|\u{26060}|\u{260ED}|\u{26270}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{26286}|\u{2634C}|\u{23D0E}|\u{26402}|\u{2667E}|\u{266B0}|\u{2671D}|\u{268DD}|\u{268EA}|\u{26951}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2696F}|\u{269DD}|\u{26A1E}|\u{26A58}|\u{26A8C}|\u{26AB7}|\u{26C73}|\u{26CDD}|\u{26E65}|\u{26F94}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{26FF8}|\u{26FF6}|\u{26FF7}|\u{2710D}|\u{27139}|\u{273DB}|\u{273DA}|\u{273FE}|\u{27410}|\u{27449}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{27615}|\u{27614}|\u{27631}|\u{27693}|\u{2770E}|\u{27723}|\u{27752}|\u{27985}|\u{27A84}|\u{27BB3}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{27BBE}|\u{27BC7}|\u{27CB8}|\u{27DA0}|\u{27E10}|\u{27FB7}|\u{2808A}|\u{280BB}|\u{28282}|\u{282F3}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2840C}|\u{28455}|\u{2856B}|\u{285C8}|\u{285C9}|\u{286D7}|\u{286FA}|\u{28949}|\u{28946}|\u{2896B}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{28987}|\u{28988}|\u{289BA}|\u{289BB}|\u{28A1E}|\u{28A29}|\u{28A71}|\u{28A43}|\u{28A99}|\u{28ACD}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{28AE4}|\u{28ADD}|\u{28BC1}|\u{28BEF}|\u{28D10}|\u{28D71}|\u{28DFB}|\u{28E1F}|\u{28E36}|\u{28E89}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{28EEB}|\u{28F32}|\u{28FF8}|\u{292A0}|\u{292B1}|\u{29490}|\u{295CF}|\u{2967F}|\u{296F0}|\u{29719}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{29750}|\u{298C6}|\u{29A72}|\u{29DDB}|\u{29E3D}|\u{29E15}|\u{29E8A}|\u{29E49}|\u{29EC4}|\u{29EE9}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{29EDB}|\u{29FCE}|\u{2A02F}|\u{2A01A}|\u{2A0F9}|\u{2A082}|\u{22218}|\u{2A38C}|\u{2A437}|\u{2A5F1}/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2A602}|\u{2A61A}|\u{2A6B2}/g"
+      }
+  ]

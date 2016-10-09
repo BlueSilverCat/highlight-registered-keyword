@@ -14,5 +14,7 @@
   "engines": {
     "atom": ">=1.10.2 <2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cson": "^3.0.2"
+  }
 }

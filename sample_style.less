@@ -1,36 +1,82 @@
-"highlight-registered-keyword":
- delay: 2000
- patterns: [
-   {
-     pattern: "///.*/g"
-     class: "comment"
-   }
-   {
-     pattern: "/#.*/g"
-     class: "comment"
-   }
-   {
-     pattern: "//\\*[\\S\\s]*?\\*//g"
-     class: "blockcomment"
-   }
-   {
-     pattern: "/RedCat/g"
-     class: "redcat"
-   }
-   {
-     pattern: "/GreenCat/g"
-     class: "greencat"
-   }
-   {
-     pattern: "/BlueCat/g"
-     class: "bluecat"
-   }
-   {
-     pattern: "/\\bcat\\b/gi"
-     class: "cat"
-   }
-   {
-     pattern: "/\\\\/g"
-     class: "backslash"
-   }
- ]
+// for .highlight-registered-keyword
+atom-text-editor::shadow .highlight {
+  &.highlight-registered-keyword {
+    .region {
+      background-color: hsla(180, 60%, 50%, 0.5);
+    }
+    &.comment {
+      .region {
+        background-color: hsla(120, 50%, 25%, 0.5);
+      }
+    }
+    &.blockcomment {
+      .region {
+        background-color: hsla(60, 50%, 25%, 0.5);
+      }
+    }
+    &.windowslinebreak {
+      .region {
+        background-color: hsla(40, 50%, 25%, 0.5);
+      }
+    }
+    &.escapeSequence {
+      .region {
+        background-color: hsla(300, 50%, 25%, 0.5);
+      }
+    }
+    &.keyword {
+      .region {
+        background-color: hsla(0, 60%, 50%, 0.5);
+      }
+    }
+    &.literal {
+      .region {
+        background-color: hsla(320, 60%, 50%, 0.5);
+      }
+    }
+    &.badSpace {
+      .region {
+        background-color: hsla(0, 60%, 50%, 0.5);
+        border: solid;
+        border-color: hsla(120, 60%, 50%, 0.5);
+      }
+    }
+    &.badZeroWidthSpace {
+      .region {
+        background-color: hsla(0, 100%, 50%, 1);
+        border: solid;
+        border-color: hsla(0, 100%, 50%, 1);
+       }
+    }
+    &.ISBN {
+      .region {
+        background-color: hsla(60, 60%, 50%, 0.5);
+      }
+    }
+    &.surrogatePairs {
+      .region {
+        background-color: hsla(300, 100%, 50%, 1);
+        border: solid;
+        border-color: hsla(0, 100%, 50%, 1);
+      }
+    }
+  }
+}
+
+/*
+atom-text-editor::shadow .highlight.highlight-registered-keyword.comment div.region {
+  background-color: hsla(120, 50%, 25%, 0.5);
+}
+atom-text-editor::shadow .highlight.highlight-registered-keyword.comment .region {
+  background-color: hsla(120, 50%, 25%, 0.5);
+}
+atom-text-editor::shadow .highlight-registered-keyword.comment .region {
+  background-color: hsla(120, 50%, 25%, 0.5);
+}
+atom-text-editor::shadow .highlight-registered-keyword .region {
+  background-color: hsla(120, 50%, 25%, 0.5);
+}
+atom-text-editor::shadow .comment .region {
+  background-color: hsla(120, 50%, 25%, 0.5);
+}
+//*/

@@ -1,48 +1,59 @@
 # highlight-registered-keyword package
 
-This package highlight registed keyword.  
+This package highlights registered keyword, regardless of file extension.  
 This package works as temporary grammar.  
+
+This package use the CSON npm package.  
 
 Sorry, Im bad at English.  
 For the reason, this is confusing description.  
 
 ## How to use
-1 Register keyword to your config.cson. like this.  
+1 Register keyword to your config.cson or CSON file that has been specified in the configFilePath.  
+like this.  
 ```.coffee
   "highlight-registered-keyword":
-    delay: 2000
+    delay: 1500
     patterns: [
       {
-        pattern: "///.*/g"
-        class: "comment"
+        class: "keyword"
+        pattern: "/WhiteCat|BlackCat/g"
       }
       {
-        pattern: "/#.*/g"
         class: "comment"
+        pattern: "/(//.*$)|(#.*$)/g"
       }
       {
-        pattern: "//\\*[\\S\\s]*?\\*//g"
         class: "blockcomment"
+        pattern: "//\\*[\\S\\s]*?\\*//g"
       }
       {
-        pattern: "/RedCat/g"
-        class: "redcat"
+        class: "keyword"
+        pattern: "/\\251|\\xAE/g"
       }
       {
-        pattern: "/GreenCat/g"
-        class: "greencat"
+        class: "windowslinebreak"
+        pattern: "/\\cM\\cJ/g"
       }
       {
-        pattern: "/BlueCat/g"
-        class: "bluecat"
+        class: "badSpace"
+        pattern: "/\u00A0|\u2000|\u2001|\u2002|\u2003|\u2004|\u2005|\u2006|\u2007|\u2008|\u2009|\u200A|\u202F|\u205F|\u3000/g"
       }
       {
-        pattern: "/\\bcat\\b/gi"
-        class: "cat"
+        class: "badZeroWidthSpace"
+        pattern: "/\u200B|\u200C|\u200D|\uFEFF/g"
       }
       {
-        pattern: "/\\\\/g"
-        class: "backslash"
+        class: "escapeSequence"
+        pattern: "/\\\\./g"
+      }
+      {
+        class: "ISBN"
+        pattern: "/(ISBN-13 ?((978)|(979))-\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)|(ISBN-10 ?\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)/g"
+      }
+      {
+        class: "surrogatePairs"
+        pattern: "/\u{2000B}|\u{2123D}|\u{2131B}|\u{2146E}|\u{218BD}|\u{20B9F}|\u{216B4}|\u{21E34}|\u{231C4}|\u{235C4}/g"
       }
     ]
 ```
@@ -52,13 +63,11 @@ For the reason, this is confusing description.
 atom-text-editor::shadow .highlight {
   &.highlight-registered-keyword {
     .region {
-      background-color: hsla(0, 60%, 50%, 0.5);
+      background-color: hsla(180, 60%, 50%, 0.5);
     }
     &.comment {
       .region {
         background-color: hsla(120, 50%, 25%, 0.5);
-        border-style: dotted;
-        border-color: hsla(180, 60%, 50%, 0.5);
       }
     }
     &.blockcomment {
@@ -66,50 +75,82 @@ atom-text-editor::shadow .highlight {
         background-color: hsla(60, 50%, 25%, 0.5);
       }
     }
-    &.backslash {
+    &.windowslinebreak {
+      .region {
+        background-color: hsla(40, 50%, 25%, 0.5);
+      }
+    }
+    &.escapeSequence {
       .region {
         background-color: hsla(300, 50%, 25%, 0.5);
       }
     }
-    &.redcat {
+    &.keyword {
       .region {
         background-color: hsla(0, 60%, 50%, 0.5);
       }
     }
-    &.greencat {
-       .region {
-         background-color: hsla(120, 60%, 50%, 0.5);
+    &.literal {
+      .region {
+        background-color: hsla(320, 60%, 50%, 0.5);
+      }
+    }
+    &.badSpace {
+      .region {
+        background-color: hsla(0, 60%, 50%, 0.5);
+        border: solid;
+        border-color: hsla(120, 60%, 50%, 0.5);
+      }
+    }
+    &.badZeroWidthSpace {
+      .region {
+        background-color: hsla(0, 100%, 50%, 1);
+        border: solid;
+        border-color: hsla(0, 100%, 50%, 1);
        }
     }
-    &.bluecat {
-       .region {
-         background-color: hsla(240, 60%, 50%, 0.5);
-       }
+    &.ISBN {
+      .region {
+        background-color: hsla(60, 60%, 50%, 0.5);
+      }
     }
-    &.cat {
-       .region {
-         background-color: hsla(180, 60%, 50%, 0.5);
-       }
+    &.surrogatePairs {
+      .region {
+        background-color: hsla(300, 100%, 50%, 1);
+        border: solid;
+        border-color: hsla(0, 100%, 50%, 1);
+      }
     }
   }
 }
 ```
 
 3 Activate package.  
-default key is `Alt+Ctrl+Shift+h`  
+Default key is `Alt+Ctrl+Shift+h`  
+If this package does not work, use `highlight-registered-keyword: show` command to check configs.  
+![screenshot](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/sample.png?raw=true)
 
-![A screenshot of your package](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
+![short animation](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
+
+
+## Commands
+* highlight-registered-keyword: toggle  
+  highlight/unhighlight keyword.  
+  default key: `Alt+Ctrl+Shift+h`.  
+* highlight-registered-keyword: show  
+  show current valid configs.  
+  default key: none.  
 
 ## about config.cson
 Patterns is array of Object.  
 Object properties are pattern and class.  
-pattern is a String that is quoted Regular expression.  
-like this `"/.*ABC.*/gmiy"`  
-valid flags are `g`, `m`, `i` and `y`.  
-class is a String that is represent CSS class.  
-if you use `\`, it need escape like this `\\`.  
+Pattern is a String that is quoted Regular expression.  
+Like this `"/.*ABC.*/gmiy"`  
+Valid flags are `g`, `m`, `i` and `y`.  
+Class is a String that is represent CSS class.  
+If you use `\`, it need escape like this `\\`.  
 e.g. `\d` is `\\d`.  
-if you want to match `\`, you have to write like this `\\\\`
+If you want to match `\`, you have to write like this `\\\\`
 ```.js
 patterns: [
 	{
@@ -121,15 +162,15 @@ patterns: [
 ```
 
 ## about style.less
-this package insert div element to near the keyword.  
-div element's class contained `highlight`, `highlight-registered-keyword`, and *`specified-class`*  
+This package insert div element to near the keyword.  
+Div element's class contained `highlight`, `highlight-registered-keyword`, and *`specified-class`*  
 ```.html
 <div class="highlight highlight-registered-keyword comment">
 	<div class="region" style="..."></div>
 </div>
 ```
-but div element not contained keyword.  
-for the above reason, you must to specify region class.
+But div element not contained keyword.  
+For the above reason, you must to specify region class.
 ```.css
 atom-text-editor::shadow .highlight&.highlight-registered-keyword&.specified-class .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
@@ -139,11 +180,14 @@ atom-text-editor::shadow .highlight-registered-keyword&.specified-class .region 
   	background-color: hsla(0, 60%, 50%, 0.5);
 }
 ```
-valid style: background, border...  
-invalid style: font, color...  
+Valid style: background, border...  
+Invalid style: font, color...  
+
+## TODO
+* Improve view.
 
 ## Known problem
-* lag on particular pattern.  
+* Lag on particular pattern.  
   e.g. `"/(.*?)/g"`  
-* multi line pattern cannot update highlight status.  
+* Multi line pattern cannot update highlight status.  
   e.g. `"//\\*[\\S\\s]*?\\*//g"`  

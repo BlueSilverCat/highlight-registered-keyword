@@ -1,3 +1,5 @@
 .DS_Store
+TestData
 npm-debug.log
 node_modules
+memo.txt
