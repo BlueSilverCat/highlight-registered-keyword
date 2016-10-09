@@ -1,7 +1,7 @@
 {
   "name": "highlight-registered-keyword",
   "main": "./lib/highlight-registered-keyword",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "highlight registered keyword",
   "keywords": [
     "highlight"
