@@ -134,10 +134,10 @@ If this package does not work, use `highlight-registered-keyword: show` command 
 
 
 ## Commands
-* highlight-registered-keyword: toggle  
+* `highlight-registered-keyword: toggle`  
   highlight/unhighlight keyword.  
   default key: `Alt+Ctrl+Shift+h`.  
-* highlight-registered-keyword: show  
+* `highlight-registered-keyword: show`  
   show current valid configs.  
   default key: none.  
 
@@ -154,8 +154,8 @@ If you want to match `\`, you have to write like this `\\\\`
 ```.js
 patterns: [
 	{
-    # /\\\d\\/g; matching string is like this \12345\
-		pattern: "/\\\\\\d?\\\\/g"  
+    # /\\\d+?\\/g; matching string is like this \12345\
+		pattern: "/\\\\\\d+?\\\\/g"  
 		class: "keyword"
 	}
 ]

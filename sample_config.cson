@@ -165,4 +165,4 @@
         class: "surrogatePairs"
         pattern: "/\u{2A602}|\u{2A61A}|\u{2A6B2}/g"
       }
-  ]
+    ]
