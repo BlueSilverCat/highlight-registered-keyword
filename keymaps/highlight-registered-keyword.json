@@ -1,5 +1,6 @@
 {
   "atom-workspace": {
-    "alt-ctrl-shift-h": "highlight-registered-keyword:toggle"
+    "alt-ctrl-shift-h": "highlight-registered-keyword:toggle",
+    "F5": "highlight-registered-keyword:remark"
   }
 }

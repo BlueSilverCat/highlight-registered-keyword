@@ -1,3 +1,6 @@
+## 0.4.0
+* Add Remark command
+
 ## 0.3.0
 * Add Show command
 * Add configFilePath setting

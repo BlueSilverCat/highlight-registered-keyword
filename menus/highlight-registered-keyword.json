@@ -11,6 +11,10 @@
               "command": "highlight-registered-keyword:toggle"
             },
             {
+              "label": "Remark",
+              "command": "highlight-registered-keyword:remark"
+            },
+            {
               "label": "Show",
               "command": "highlight-registered-keyword:show"
             }

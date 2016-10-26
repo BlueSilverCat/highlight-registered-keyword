@@ -138,12 +138,15 @@ If this package does not work, use `highlight-registered-keyword: show` command 
 
 
 ## Commands
-* `highlight-registered-keyword: toggle`  
-  highlight/unhighlight keyword.  
-  default key: `Alt+Ctrl+Shift+h`.  
-* `highlight-registered-keyword: show`  
-  show current valid configs.  
-  default key: none.  
+* `highlight-registered-keyword:toggle`  
+  Highlight/Unhighlight keyword.  
+  Default key: `Alt+Ctrl+Shift+h`.  
+* `highlight-registered-keyword:remark`  
+  Remark active editor.  
+  Default key: `F5`.
+* `highlight-registered-keyword:show`  
+  Show current valid configs.  
+  Default key: none.  
 
 ## about config.cson
 Patterns is array of Object.  
@@ -176,11 +179,11 @@ Div element's class contained `highlight`, `highlight-registered-keyword`, and *
 But div element not contained keyword.  
 For the above reason, you must to specify region class.
 ```.css
-atom-text-editor::shadow .highlight&.highlight-registered-keyword&.specified-class .region {
+atom-text-editor::shadow .highlight&.highlight-registered-keyword&.comment .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
 }
 // or
-atom-text-editor::shadow .highlight-registered-keyword&.specified-class .region {
+atom-text-editor::shadow .highlight-registered-keyword&.comment .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
 }
 ```
