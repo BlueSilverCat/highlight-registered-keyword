@@ -7,16 +7,32 @@
           "label": "highlight-registered-keyword",
           "submenu": [
             {
-              "label": "Toggle",
-              "command": "highlight-registered-keyword:toggle"
+              "label": "Mark all",
+              "command": "highlight-registered-keyword:markAll"
             },
             {
-              "label": "Remark",
-              "command": "highlight-registered-keyword:remark"
+              "label": "Unmark all",
+              "command": "highlight-registered-keyword:unmarkAll"
+            },
+            {
+              "label": "Mark",
+              "command": "highlight-registered-keyword:mark"
+            },
+            {
+              "label": "Unmark",
+              "command": "highlight-registered-keyword:unmark"
             },
             {
               "label": "Show",
               "command": "highlight-registered-keyword:show"
+            },
+            {
+              "label": "Open",
+              "command": "highlight-registered-keyword:open"
+            },
+            {
+              "label": "Settings",
+              "command": "highlight-registered-keyword:settings"
             }
           ]
         }

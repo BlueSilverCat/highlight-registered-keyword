@@ -9,53 +9,56 @@ Sorry, Im bad at English.
 For the reason, this is confusing description.  
 
 ## How to use
-1 Register keyword to your config.cson or CSON file that has been specified in the configFilePath.  
-like this.  
+1 Set PatternsFilePath. PatternsFilePath specifies CSON file that defines keyword.  
+e.g.  
 ```.coffee
-  "highlight-registered-keyword":
-    delay: 1500
-    patterns: [
-      {
-        class: "keyword"
-        pattern: "/WhiteCat|BlackCat/g"
-      }
-      {
-        class: "comment"
-        pattern: "/(//.*$)|(#.*$)/g"
-      }
-      {
-        class: "blockcomment"
-        pattern: "//\\*[\\S\\s]*?\\*//g"
-      }
-      {
-        class: "keyword"
-        pattern: "/\\251|\\xAE/g"
-      }
-      {
-        class: "windowslinebreak"
-        pattern: "/\\cM\\cJ/g"
-      }
-      {
-        class: "badSpace"
-        pattern: "/\u00A0|\u2000|\u2001|\u2002|\u2003|\u2004|\u2005|\u2006|\u2007|\u2008|\u2009|\u200A|\u202F|\u205F|\u3000/g"
-      }
-      {
-        class: "badZeroWidthSpace"
-        pattern: "/\u200B|\u200C|\u200D|\uFEFF/g"
-      }
-      {
-        class: "escapeSequence"
-        pattern: "/\\\\./g"
-      }
-      {
-        class: "ISBN"
-        pattern: "/(ISBN-13 ?((978)|(979))-\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)|(ISBN-10 ?\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)/g"
-      }
-      {
-        class: "surrogatePairs"
-        pattern: "/\u{2000B}|\u{2123D}|\u{2131B}|\u{2146E}|\u{218BD}|\u{20B9F}|\u{216B4}|\u{21E34}|\u{231C4}|\u{235C4}/g"
-      }
-    ]
+"highlight-registered-keyword": [
+  {
+    class: "keyword"
+    pattern: "/WhiteCat|BlackCat/g"
+  }
+  {
+    class: "comment"
+    pattern: "/(//.*$)|(#.*$)/g"
+  }
+  {
+    class: "blockcomment"
+    pattern: "//\\*[\\S\\s]*?\\*//g"
+  }
+  {
+    class: "keyword"
+    pattern: "/\\251|\\xAE/g"
+  }
+  {
+    class: "windowslinebreak"
+    pattern: "/\\cM\\cJ/g"
+    disable: true
+  }
+  {
+    class: "badSpace"
+    pattern: "/\u00A0|\u2000|\u2001|\u2002|\u2003|\u2004|\u2005|\u2006|\u2007|\u2008|\u2009|\u200A|\u202F|\u205F|\u3000/g"
+  }
+  {
+    class: "badZeroWidthSpace"
+    pattern: "/\u200B|\u200C|\u200D|\uFEFF/g"
+  }
+  {
+    class: "escapeSequence"
+    pattern: "/\\\\./g"
+  }
+  {
+    class: "literal"
+    pattern: "/\".*?\"/g"
+  }
+  {
+    class: "ISBN"
+    pattern: "/(ISBN-13 ?((978)|(979))-\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)|(ISBN-10 ?\\d{1,9}-\\d{1,9}-\\d{1,9}-\\d)/g"
+  }
+  {
+    class: "surrogatePairs"
+    pattern: "/\u{2000B}|\u{2123D}|\u{2131B}|\u{2146E}|\u{218BD}|\u{20B9F}|\u{216B4}|\u{21E34}|\u{231C4}|\u{235C4}/g"
+  }
+]
 ```
 
 2 Register style to your styles.less. like this.  
@@ -130,45 +133,60 @@ atom-text-editor::shadow .highlight {
 ```
 
 3 Activate package.  
-Default key is `Alt+Ctrl+Shift+h`  
-If this package does not work, use `highlight-registered-keyword: show` command to check configs.  
+Press `Alt+Ctrl+Shift+h` or `F5`  
+If this package does not work, use `highlight-registered-keyword:show` command to check patterns.  
 ![screenshot](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/sample.png?raw=true)
 
 ![short animation](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
 
 
 ## Commands
-* `highlight-registered-keyword:toggle`  
-  Highlight/Unhighlight keyword.  
+* `highlight-registered-keyword:markAll`  
+  Highlight keywords in all editors.  
   Default key: `Alt+Ctrl+Shift+h`.  
-* `highlight-registered-keyword:remark`  
-  Remark active editor.  
-  Default key: `F5`.
+* `highlight-registered-keyword:unmarkAll`  
+  Unhighlight keywords in all editors.  
+  Default key: none.  
+* `highlight-registered-keyword:mark`  
+  Highlight keywords in an only active editor.  
+  Default key: `F5`.  
+* `highlight-registered-keyword:unmark`  
+  Unhighlight keywords in an only active editor.  
+  Default key: none.  
 * `highlight-registered-keyword:show`  
   Show current valid configs.  
   Default key: none.  
+* `highlight-registered-keyword:open`  
+  Open PatternsFile that has been specified by PatternsFilePath.  
+  Default key: none.  
+* `highlight-registered-keyword:settings`  
+  Open package settings.  
+  Default key: none.  
 
-## about config.cson
+## About file that has been specified by FilePath.
 Patterns is array of Object.  
-Object properties are pattern and class.  
-Pattern is a String that is quoted Regular expression.  
-Like this `"/.*ABC.*/gmiy"`  
+Object properties are `pattern`, `class` and `disable`.  
+`Pattern` is a String that was quoted regular expression.  
+Like this `"/.*ABC.*/gmiy"`.  
 Valid flags are `g`, `m`, `i` and `y`.  
-Class is a String that is represent CSS class.  
-If you use `\`, it need escape like this `\\`.  
+`Class` is a String that represents CSS class.  
+`Disable` is Boolean that represents this pattern is disable.  
+`Disable` is optional.  
+If you use `\`, it need escaping like this `\\`.  
 e.g. `\d` is `\\d`.  
-If you want to match `\`, you have to write like this `\\\\`
-```.js
-patterns: [
-	{
+If you want to match `\`, you have to write like this `\\\\`  
+```.coffee
+"highlight-registered-keyword": [
+  {
     # /\\\d+?\\/g; matching string is like this \12345\
-		pattern: "/\\\\\\d+?\\\\/g"  
-		class: "keyword"
-	}
+    class: "keyword"
+    pattern: "/\\\\\\d+?\\\\/g"  
+    disable: false
+  }
 ]
 ```
 
-## about style.less
+## About style.less
 This package insert div element to near the keyword.  
 Div element's class contained `highlight`, `highlight-registered-keyword`, and *`specified-class`*  
 ```.html
@@ -176,8 +194,8 @@ Div element's class contained `highlight`, `highlight-registered-keyword`, and *
 	<div class="region" style="..."></div>
 </div>
 ```
-But div element not contained keyword.  
-For the above reason, you must to specify region class.
+But div element not containes keyword.  
+For the above reason, you must to specify region class.  
 ```.css
 atom-text-editor::shadow .highlight&.highlight-registered-keyword&.comment .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
@@ -191,10 +209,10 @@ Valid style: background, border...
 Invalid style: font, color...  
 
 ## TODO
-* Improve view.
+* Add a way to switch patterns quickly.
 
 ## Known problem
 * Lag on particular pattern.  
   e.g. `"/(.*?)/g"`  
-* Multi line pattern cannot update highlight status.  
+* Multi line pattern cannot updates highlight status.  
   e.g. `"//\\*[\\S\\s]*?\\*//g"`  

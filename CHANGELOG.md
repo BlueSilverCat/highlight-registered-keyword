@@ -1,3 +1,19 @@
+## 1.0.0
+* Change commands. Current commands are
+  * `highlight-registered-keyword:markAll`  
+  * `highlight-registered-keyword:unmarkAll`  
+  * `highlight-registered-keyword:mark`  
+  * `highlight-registered-keyword:unmark`  
+  * `highlight-registered-keyword:show`  
+  * `highlight-registered-keyword:open`  
+  * `highlight-registered-keyword:settings`  
+* Change manual activate to auto activate.
+* Change configs.
+  * Change ConfigFilePath to PatternsFilePath.
+  * Add AutoMark to settings.
+  * Remove Patterns from config.cson.
+  * Remove DisableConfigFilePath from settings.
+
 ## 0.4.0
 * Add Remark command
 
