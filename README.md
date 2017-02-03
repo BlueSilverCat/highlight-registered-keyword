@@ -63,7 +63,7 @@ e.g.
 
 2 Register style to your styles.less. like this.  
 ```.css
-atom-text-editor::shadow .highlight {
+atom-text-editor .highlight {
   &.highlight-registered-keyword {
     .region {
       background-color: hsla(180, 60%, 50%, 0.5);
@@ -197,11 +197,11 @@ Div element's class contained `highlight`, `highlight-registered-keyword`, and *
 But div element not containes keyword.  
 For the above reason, you must to specify region class.  
 ```.css
-atom-text-editor::shadow .highlight&.highlight-registered-keyword&.comment .region {
+atom-text-editor .highlight&.highlight-registered-keyword&.comment .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
 }
 // or
-atom-text-editor::shadow .highlight-registered-keyword&.comment .region {
+atom-text-editor .highlight-registered-keyword&.comment .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
 }
 ```
