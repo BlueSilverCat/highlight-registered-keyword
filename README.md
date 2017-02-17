@@ -19,7 +19,6 @@ e.g.
     fileTypes:["txt"]
   }
   {
-  {
     class: "comment"
     pattern: "///.*$/g"
     fileTypes:["c", "cpp", "js"]
@@ -185,9 +184,9 @@ Like this `"/.*ABC.*/gmiy"`.
 Valid flags are `g`, `m`, `i` and `y`.  
 `class` is a String that represents CSS class.  
 `disable` is Boolean that represents this pattern is disable.  
-`disable` is optional. if you don't describe this, it set to false.
-`fileTypes` is Array of String that specify the target filetypes.
-`fileTypes` is optional. if you don't describe this, it set to ['\*']\(all filetype).
+`disable` is optional. If you don't describe this, it set to false.  
+`fileTypes` is Array of String that specify the target filetypes.  
+`fileTypes` is optional. If you don't describe this, it set to `["*"]`\(all filetype).  
 If you use `\`, it need escaping like this `\\`.  
 e.g. `\d` is `\\d`.  
 If you want to match `\`, you have to write like this `\\\\`  
@@ -198,7 +197,7 @@ If you want to match `\`, you have to write like this `\\\\`
     class: "keyword"
     pattern: "/\\\\\\d+?\\\\/g"  
     disable: false
-    fileTypes: ["txt"]
+    fileTypes: ["*"]
   }
 ]
 ```
