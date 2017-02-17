@@ -16,14 +16,28 @@ e.g.
   {
     class: "keyword"
     pattern: "/WhiteCat|BlackCat/g"
+    fileTypes:["txt"]
+  }
+  {
+  {
+    class: "comment"
+    pattern: "///.*$/g"
+    fileTypes:["c", "cpp", "js"]
   }
   {
     class: "comment"
-    pattern: "/(//.*$)|(#.*$)/g"
+    pattern: "/#.*$/g"
+    fileTypes:["py"]
   }
   {
     class: "blockcomment"
     pattern: "//\\*[\\S\\s]*?\\*//g"
+    fileTypes:["c", "cpp", "js"]
+  }
+  {
+    class: "blockcomment"
+    pattern: "/'''[\\S\\s]*?'''/g"
+    fileTypes:["py"]
   }
   {
     class: "keyword"
@@ -165,13 +179,15 @@ If this package does not work, use `highlight-registered-keyword:show` command t
 
 ## About file that has been specified by FilePath.
 Patterns is array of Object.  
-Object properties are `pattern`, `class` and `disable`.  
-`Pattern` is a String that was quoted regular expression.  
+Object properties are `pattern`, `class`, `fileTypes` and `disable`.  
+`pattern` is a String that was quoted regular expression.  
 Like this `"/.*ABC.*/gmiy"`.  
 Valid flags are `g`, `m`, `i` and `y`.  
-`Class` is a String that represents CSS class.  
-`Disable` is Boolean that represents this pattern is disable.  
-`Disable` is optional.  
+`class` is a String that represents CSS class.  
+`disable` is Boolean that represents this pattern is disable.  
+`disable` is optional. if you don't describe this, it set to false.
+`fileTypes` is Array of String that specify the target filetypes.
+`fileTypes` is optional. if you don't describe this, it set to ['\*']\(all filetype).
 If you use `\`, it need escaping like this `\\`.  
 e.g. `\d` is `\\d`.  
 If you want to match `\`, you have to write like this `\\\\`  
@@ -182,6 +198,7 @@ If you want to match `\`, you have to write like this `\\\\`
     class: "keyword"
     pattern: "/\\\\\\d+?\\\\/g"  
     disable: false
+    fileTypes: ["txt"]
   }
 ]
 ```
@@ -207,9 +224,6 @@ atom-text-editor .highlight-registered-keyword&.comment .region {
 ```
 Valid style: background, border...  
 Invalid style: font, color...  
-
-## TODO
-* Add a way to switch patterns quickly.
 
 ## Known problem
 * Lag on particular pattern.  

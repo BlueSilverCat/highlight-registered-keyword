@@ -1,3 +1,6 @@
+## 1.1.0
+* Add FileTypes.
+
 ## 1.0.0
 * Change commands. Current commands are
   * `highlight-registered-keyword:markAll`  

@@ -2,14 +2,27 @@
   {
     class: "keyword"
     pattern: "/WhiteCat|BlackCat/g"
+    fileTypes:["txt"]
   }
   {
     class: "comment"
-    pattern: "/(//.*$)|(#.*$)/g"
+    pattern: "///.*$/g"
+    fileTypes:["c", "cpp", "js"]
+  }
+  {
+    class: "comment"
+    pattern: "/#.*$/g"
+    fileTypes:["py"]
   }
   {
     class: "blockcomment"
     pattern: "//\\*[\\S\\s]*?\\*//g"
+    fileTypes:["c", "cpp", "js"]
+  }
+  {
+    class: "blockcomment"
+    pattern: "/'''[\\S\\s]*?'''/g"
+    fileTypes:["py"]
   }
   {
     class: "keyword"
