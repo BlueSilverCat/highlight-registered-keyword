@@ -1,42 +1,37 @@
 {
-  "menu": [
-    {
-      "label": "Packages",
-      "submenu": [
+  "menu": [{
+    "label": "Packages",
+    "submenu": [{
+      "label": "highlight-registered-keyword",
+      "submenu": [{
+          "label": "Mark all",
+          "command": "highlight-registered-keyword:markAll"
+        },
         {
-          "label": "highlight-registered-keyword",
-          "submenu": [
-            {
-              "label": "Mark all",
-              "command": "highlight-registered-keyword:markAll"
-            },
-            {
-              "label": "Unmark all",
-              "command": "highlight-registered-keyword:unmarkAll"
-            },
-            {
-              "label": "Mark",
-              "command": "highlight-registered-keyword:mark"
-            },
-            {
-              "label": "Unmark",
-              "command": "highlight-registered-keyword:unmark"
-            },
-            {
-              "label": "Show",
-              "command": "highlight-registered-keyword:show"
-            },
-            {
-              "label": "Open",
-              "command": "highlight-registered-keyword:open"
-            },
-            {
-              "label": "Settings",
-              "command": "highlight-registered-keyword:settings"
-            }
-          ]
+          "label": "Unmark all",
+          "command": "highlight-registered-keyword:unmarkAll"
+        },
+        {
+          "label": "Mark",
+          "command": "highlight-registered-keyword:mark"
+        },
+        {
+          "label": "Unmark",
+          "command": "highlight-registered-keyword:unmark"
+        },
+        {
+          "label": "Show",
+          "command": "highlight-registered-keyword:show"
+        },
+        {
+          "label": "Open",
+          "command": "highlight-registered-keyword:open"
+        },
+        {
+          "label": "Settings",
+          "command": "highlight-registered-keyword:settings"
         }
       ]
-    }
-  ]
+    }]
+  }]
 }

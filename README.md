@@ -2,6 +2,7 @@
 
 This package highlights registered keyword, regardless of file extension.  
 This package works as temporary grammar.  
+![short animation](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
 
 This package use the CSON npm package.  
 
@@ -9,8 +10,10 @@ Sorry, Im bad at English.
 For the reason, this is confusing description.  
 
 ## How to use
+
 1 Set PatternsFilePath. PatternsFilePath specifies CSON file that defines keyword.  
 e.g.  
+
 ```.coffee
 "highlight-registered-keyword": [
   {
@@ -75,6 +78,7 @@ e.g.
 ```
 
 2 Register style to your styles.less. like this.  
+
 ```.css
 atom-text-editor .highlight {
   &.highlight-registered-keyword {
@@ -150,33 +154,32 @@ Press `Alt+Ctrl+Shift+h` or `F5`
 If this package does not work, use `highlight-registered-keyword:show` command to check patterns.  
 ![screenshot](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/sample.png?raw=true)
 
-![short animation](https://raw.githubusercontent.com/BlueSilverCat/highlight-registered-keyword/master/highlight-registered-keyword.gif?raw=true)
-
-
 ## Commands
-* `highlight-registered-keyword:markAll`  
-  Highlight keywords in all editors.  
-  Default key: `Alt+Ctrl+Shift+h`.  
-* `highlight-registered-keyword:unmarkAll`  
-  Unhighlight keywords in all editors.  
-  Default key: none.  
-* `highlight-registered-keyword:mark`  
-  Highlight keywords in an only active editor.  
-  Default key: `F5`.  
-* `highlight-registered-keyword:unmark`  
-  Unhighlight keywords in an only active editor.  
-  Default key: none.  
-* `highlight-registered-keyword:show`  
-  Show current valid configs.  
-  Default key: none.  
-* `highlight-registered-keyword:open`  
-  Open PatternsFile that has been specified by PatternsFilePath.  
-  Default key: none.  
-* `highlight-registered-keyword:settings`  
-  Open package settings.  
-  Default key: none.  
+
+-   `highlight-registered-keyword:markAll`  
+    Highlight keywords in all editors.  
+    Default key: `Alt+Ctrl+Shift+h`.  
+-   `highlight-registered-keyword:unmarkAll`  
+    Unhighlight keywords in all editors.  
+    Default key: none.  
+-   `highlight-registered-keyword:mark`  
+    Highlight keywords in an only active editor.  
+    Default key: `F5`.  
+-   `highlight-registered-keyword:unmark`  
+    Unhighlight keywords in an only active editor.  
+    Default key: none.  
+-   `highlight-registered-keyword:show`  
+    Show current valid configs.  
+    Default key: none.  
+-   `highlight-registered-keyword:open`  
+    Open PatternsFile that has been specified by PatternsFilePath.  
+    Default key: none.  
+-   `highlight-registered-keyword:settings`  
+    Open package settings.  
+    Default key: none.  
 
 ## About file that has been specified by FilePath.
+
 Patterns is array of Object.  
 Object properties are `pattern`, `class`, `fileTypes` and `disable`.  
 `pattern` is a String that was quoted regular expression.  
@@ -186,10 +189,11 @@ Valid flags are `g`, `m`, `i` and `y`.
 `disable` is Boolean that represents this pattern is disable.  
 `disable` is optional. If you don't describe this, it set to false.  
 `fileTypes` is Array of String that specify the target filetypes.  
-`fileTypes` is optional. If you don't describe this, it set to `["*"]`\(all filetype).  
+`fileTypes` is optional. If you don't describe this, it set to `["*"]`(all filetype).  
 If you use `\`, it need escaping like this `\\`.  
 e.g. `\d` is `\\d`.  
 If you want to match `\`, you have to write like this `\\\\`  
+
 ```.coffee
 "highlight-registered-keyword": [
   {
@@ -203,15 +207,19 @@ If you want to match `\`, you have to write like this `\\\\`
 ```
 
 ## About style.less
+
 This package insert div element to near the keyword.  
-Div element's class contained `highlight`, `highlight-registered-keyword`, and *`specified-class`*  
+Div element's class contained `highlight`, `highlight-registered-keyword`, and _`specified-class`_  
+
 ```.html
 <div class="highlight highlight-registered-keyword comment">
 	<div class="region" style="..."></div>
 </div>
 ```
+
 But div element not containes keyword.  
 For the above reason, you must to specify region class.  
+
 ```.css
 atom-text-editor .highlight&.highlight-registered-keyword&.comment .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
@@ -221,11 +229,13 @@ atom-text-editor .highlight-registered-keyword&.comment .region {
   	background-color: hsla(0, 60%, 50%, 0.5);
 }
 ```
+
 Valid style: background, border...  
 Invalid style: font, color...  
 
 ## Known problem
-* Lag on particular pattern.  
-  e.g. `"/(.*?)/g"`  
-* Multi line pattern cannot updates highlight status.  
-  e.g. `"//\\*[\\S\\s]*?\\*//g"`  
+
+-   Lag on particular pattern.  
+    e.g. `"/(.*?)/g"`  
+-   Multi line pattern cannot updates highlight status.  
+    e.g. `"//\\*[\\S\\s]*?\\*//g"`  
